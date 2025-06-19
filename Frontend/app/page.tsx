@@ -9,6 +9,7 @@ import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 import { MoveDown } from "lucide-react"
 import ViewUsersPage from "@/components/ViewUsersPage"
+import Experience from "@/components/Experience"
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <Hero />
         <About />
         <Skills />
+        <Experience/>
         <Projects />
         <Education />
         <Certifications />

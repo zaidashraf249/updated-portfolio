@@ -11,7 +11,14 @@ const Projects = () => {
       description:
         "A full-stack web application built with Next.js, Node.js, and MySQL, utilizing AI/ML to analyze resumes and provide feedback for improved ATS compatibility.",
       image: "/images/developer-workspace.png",
-      technologies: ["Next.js", "Tailwind CSS", "JavaScript", "MySQL", "Node.js", "AI/ML"],
+      technologies: [
+        "Next.js",
+        "Tailwind CSS",
+        "JavaScript",
+        "MySQL",
+        "Node.js",
+        "AI/ML",
+      ],
       liveLink: "#",
       githubLink: "https://github.com/zaidashraf249",
     },
@@ -25,12 +32,12 @@ const Projects = () => {
       githubLink: "https://github.com/zaidashraf249",
     },
     {
-      title: "E-commerce Dashboard",
+      title: "Tic Tac Toe Game",
       description:
-        "A dashboard for e-commerce store owners to track sales, inventory, and customer data with interactive charts and analytics.",
+        "A classic two-player Tic Tac Toe game built using HTML, CSS, and JavaScript. Includes a simple UI with win/draw detection and restart functionality.",
       image: "/images/developer-workspace.png",
-      technologies: ["React.js", "Chart.js", "Node.js", "Express", "MongoDB"],
-      liveLink: "#",
+      technologies: ["HTML", "CSS", "JavaScript"],
+      liveLink: "https://zaidashraf249.github.io/Tic-Tac-Toe/",
       githubLink: "https://github.com/zaidashraf249",
     },
   ];
@@ -56,14 +63,16 @@ const Projects = () => {
           transition={{ delay: 0.1, duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <span className="text-purple-600 dark:text-purple-400 font-medium">My Projects</span>
+          <span className="text-purple-600 dark:text-purple-400 font-medium">
+            My Projects
+          </span>
           <h2 className="text-3xl font-bold mt-2 mb-2">
             <span className="gradient-text">Recent Works</span>
           </h2>
           <div className="w-24 h-1 mx-auto bg-gradient-to-r from-purple-600 to-pink-600 rounded-full"></div>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mt-4">
-            Here are some of the projects I've worked on that showcase my skills and experience as a full-stack
-            developer.
+            Here are some of the projects I've worked on that showcase my skills
+            and experience as a full-stack developer.
           </p>
         </motion.div>
 
@@ -89,7 +98,9 @@ const Projects = () => {
                 <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">{project.description}</p>
+                <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
+                  {project.description}
+                </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, techIndex) => (
                     <span
@@ -101,7 +112,11 @@ const Projects = () => {
                   ))}
                 </div>
                 <div className="flex space-x-3">
-                  <Button variant="outline" size="sm" className="flex-1 rounded-full">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="flex-1 rounded-full"
+                  >
                     <a
                       href={project.liveLink}
                       target="_blank"
@@ -111,7 +126,11 @@ const Projects = () => {
                       <ExternalLink size={16} className="mr-2" /> Live Demo
                     </a>
                   </Button>
-                  <Button variant="outline" size="sm" className="flex-1 rounded-full">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="flex-1 rounded-full"
+                  >
                     <a
                       href={project.githubLink}
                       target="_blank"
