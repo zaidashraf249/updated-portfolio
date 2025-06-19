@@ -19,7 +19,7 @@ const Projects = () => {
         "Node.js",
         "AI/ML",
       ],
-      liveLink: "#",
+      liveLink: "*",
       githubLink: "https://github.com/zaidashraf249",
     },
     {

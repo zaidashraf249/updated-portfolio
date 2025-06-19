@@ -1,14 +1,10 @@
+const isGithubPages = process.env.NODE_ENV === 'production';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  images: {
-    unoptimized: true,
-  },
-}
+  output: 'export',
+  basePath: isGithubPages ? '/updated-portfolio' : '',
+  assetPrefix: isGithubPages ? '/updated-portfolio/' : '',
+};
 
-export default nextConfig
+export default nextConfig;
