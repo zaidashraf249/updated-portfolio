@@ -26,7 +26,7 @@ const Projects = () => {
       title: "Personal Portfolio",
       description:
         "A personal portfolio website built with HTML and CSS to showcase skills, projects, and personal information in a structured and visually appealing layout.",
-      image: "/images/developer-workspace.png",
+      image: "/images/portfolio-image.jpg",
       technologies: ["HTML", "CSS", "JavaScript", "Responsive Design"],
       liveLink: "#",
       githubLink: "https://github.com/zaidashraf249",
@@ -35,7 +35,7 @@ const Projects = () => {
       title: "Tic Tac Toe Game",
       description:
         "A classic two-player Tic Tac Toe game built using HTML, CSS, and JavaScript. Includes a simple UI with win/draw detection and restart functionality.",
-      image: "/images/developer-workspace.png",
+      image: "/images/tic-tac-toe.jpg",
       technologies: ["HTML", "CSS", "JavaScript"],
       liveLink: "https://zaidashraf249.github.io/Tic-Tac-Toe/",
       githubLink: "https://github.com/zaidashraf249",

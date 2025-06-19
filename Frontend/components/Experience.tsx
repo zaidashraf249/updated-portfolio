@@ -44,9 +44,12 @@ function Experience() {
                 <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-1">
                   Full-Stack Developer
                 </h3>
-                <h4 className="text-purple-600 dark:text-purple-400 font-medium">
+                <a 
+                className="text-purple-600 dark:text-purple-400 font-medium"
+                href="https://www.qaswatechnologies.com/index.php"
+                >
                   Qaswa Tech Pvt. Ltd.
-                </h4>
+                </a>
               </div>
               <div className="text-gray-600 dark:text-gray-400 text-sm mt-2 md:mt-0">
                 <span>01/2025 – Present</span>

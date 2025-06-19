@@ -8,25 +8,25 @@ const Certifications = () => {
       title: "Python Fundamentals for Beginners",
       issuer: "Coursera",
       date: "2023",
-      link: "#",
+      link: "/images/python-dev.jpg",
     },
     {
       title: "Mobile App Development",
       issuer: "Udemy",
       date: "2022",
-      link: "#",
+      link: "/images/mobile-app-dev.JPG",
     },
     {
       title: "Navigating On-Page and Technical SEO",
       issuer: "Google Digital Garage",
       date: "2023",
-      link: "#",
+      link: "/images/navigation-seo.png",
     },
     {
       title: "The CRAFT of Mobile SEO",
       issuer: "SEMrush Academy",
       date: "2022",
-      link: "#",
+      link: "/images/mobile-seo.png",
     },
   ];
 
