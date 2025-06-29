@@ -4,14 +4,16 @@ import { useState, ChangeEvent, FormEvent } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 
-const fadeIn = {
+// ✅ FIX: fadeIn is now a function that returns the motion props
+const fadeIn = (delay = 0) => ({
   initial: { opacity: 0, y: 40 },
   whileInView: { opacity: 1, y: 0 },
-  transition: (delay = 0) => ({
+  transition: {
     duration: 0.6,
     delay,
-  }),
-};
+    ease: "easeOut",
+  },
+});
 
 const Contact = () => {
   const [contact, setContact] = useState({
@@ -63,7 +65,7 @@ const Contact = () => {
       viewport={{ once: true }}
     >
       <div className="container mx-auto px-4 max-w-6xl">
-        <motion.div {...fadeIn}>
+        <motion.div {...fadeIn(0)}>
           <div className="text-center mb-12">
             <span className="text-purple-600 dark:text-purple-400 font-medium">Get In Touch</span>
             <h2 className="text-3xl font-bold mt-2 mb-4">
@@ -83,7 +85,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 max-w-5xl mx-auto">
           {/* Contact Info Cards */}
           <div className="lg:col-span-1 space-y-6">
-            {[ // Animating all contact info cards
+            {[
               {
                 icon: <Phone className="text-purple-600 dark:text-purple-400" size={24} />,
                 title: "Phone",
@@ -119,8 +121,7 @@ const Contact = () => {
             ].map((item, i) => (
               <motion.div
                 key={i}
-                {...fadeIn}
-                transition={fadeIn.transition(i * 0.2)}
+                {...fadeIn(i * 0.2)} // ✅ correct usage
                 className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-lg transition-all border border-gray-100 dark:border-gray-700 hover:border-purple-200 dark:hover:border-purple-800 group"
               >
                 <div className="flex items-start">
@@ -139,8 +140,7 @@ const Contact = () => {
           {/* Contact Form */}
           <motion.div
             className="lg:col-span-2"
-            {...fadeIn}
-            transition={fadeIn.transition(0.3)}
+            {...fadeIn(0.3)} // ✅ correct usage
           >
             <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden">
               <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-4">
@@ -214,7 +214,7 @@ const Contact = () => {
 
                   <button
                     type="submit"
-                    style={{borderRadius:"5px"}}
+                    style={{ borderRadius: "5px" }}
                     disabled={isSubmitting}
                     className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-medium py-2 px-4 rounded-lg shadow-md transition-all"
                   >
