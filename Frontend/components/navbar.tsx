@@ -13,17 +13,9 @@ const Navbar = () => {
     setMounted(true);
   }, []);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const closeMenu = () => {
-    setIsOpen(false);
-  };
-
-  const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
+  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
 
   const navItems = [
     { name: "Home", href: "#home" },
@@ -38,14 +30,15 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm">
-      <div className="section-container py-4 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+        {/* Logo */}
         <a href="#home" className="text-2xl font-bold">
           <span className="gradient-text">Zaid</span>
           <span className="text-gray-800 dark:text-white">.dev</span>
         </a>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6">
+        {/* Desktop Navigation (visible above 1500px) */}
+        <nav className="hidden 3xl:flex items-center space-x-6">
           {navItems.map((item) => (
             <a
               key={item.name}
@@ -65,6 +58,7 @@ const Navbar = () => {
             Admin
           </a>
 
+          {/* Theme Toggle */}
           {mounted && (
             <button
               onClick={toggleTheme}
@@ -76,17 +70,20 @@ const Navbar = () => {
           )}
         </nav>
 
-        {/* Mobile Navigation Toggle */}
-        <div className="flex items-center md:hidden">
+        {/* Mobile Buttons (visible below 1500px) */}
+        <div className="flex items-center 3xl:hidden space-x-2">
+          {/* Theme Toggle */}
           {mounted && (
             <button
               onClick={toggleTheme}
-              className="mr-2 bg-gray-100 dark:bg-gray-800 p-2 rounded-full text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              className="bg-gray-100 dark:bg-gray-800 p-2 rounded-full text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
               aria-label="Toggle theme"
             >
               {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
             </button>
           )}
+
+          {/* Hamburger Menu */}
           <button
             onClick={toggleMenu}
             aria-label={isOpen ? "Close menu" : "Open menu"}
@@ -99,27 +96,25 @@ const Navbar = () => {
 
       {/* Mobile Navigation Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-md">
-          <div className="section-container px-4 py-4 space-y-2 flex flex-col">
+        <div className="3xl:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-md">
+          <div className="px-4 py-4 space-y-3">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
                 onClick={closeMenu}
-                className="block text-base text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors py-2 border-b border-gray-100 dark:border-gray-800"
+                className="block text-base text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors border-b border-gray-100 dark:border-gray-800 py-2"
               >
                 {item.name}
               </a>
             ))}
 
-            {/* Divider (Optional visual break before admin link) */}
-            <div className="border-gray-200 dark:border-gray-700 my-2"></div>
+            <hr className="border-gray-200 dark:border-gray-700" />
 
-            {/* Admin Link */}
             <a
               href="/varifyAdmin"
               onClick={closeMenu}
-              className="block text-base text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors py-2 border-b border-gray-100 dark:border-gray-800"
+              className="block text-base font-semibold text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 py-2"
             >
               Admin
             </a>

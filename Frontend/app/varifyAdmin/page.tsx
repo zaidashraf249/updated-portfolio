@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Eye, EyeOff } from "lucide-react";
+import ThemeToggle from "@/components/setTheme";
 
 const AdminLoginPage = () => {
   const router = useRouter();
@@ -44,6 +45,9 @@ const AdminLoginPage = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-100 via-white to-pink-100 dark:from-gray-900 dark:to-gray-800 px-4 py-12">
+      <header className="absolute top-4 right-4 z-50">
+        <ThemeToggle />
+      </header>
       <div className="w-full max-w-md">
         {/* Back to Home Button */}
         <div className="flex justify-end mb-6">

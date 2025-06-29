@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
+import ThemeToggle from "@/components/setTheme";
 
 const UpdatePage = () => {
   const router = useRouter();
@@ -19,7 +20,9 @@ const UpdatePage = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/v1/getmessage/${id}`);
+        const res = await fetch(
+          `http://localhost:5000/api/v1/getmessage/${id}`
+        );
         const data = await res.json();
         setEditData(data);
       } catch (error) {
@@ -71,6 +74,10 @@ const UpdatePage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-100 via-white to-pink-100 dark:from-gray-900 dark:to-gray-800 py-12 px-4">
+      <header className="absolute top-4 right-4 z-50">
+        <ThemeToggle />
+      </header>
+      <br /><br />
       <div className="max-w-xl mx-auto">
         {/* Top Buttons */}
         <div className="flex flex-wrap justify-between gap-4 mb-6">
