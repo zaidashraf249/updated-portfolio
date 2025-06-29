@@ -2,16 +2,16 @@
 
 import { useState, ChangeEvent, FormEvent } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, easeOut } from "framer-motion";
 
-// ✅ FIX: fadeIn is now a function that returns the motion props
+// ✅ FIXED: Valid easing function for framer-motion
 const fadeIn = (delay = 0) => ({
   initial: { opacity: 0, y: 40 },
   whileInView: { opacity: 1, y: 0 },
   transition: {
     duration: 0.6,
     delay,
-    ease: "easeOut",
+    ease: easeOut,
   },
 });
 
@@ -121,7 +121,7 @@ const Contact = () => {
             ].map((item, i) => (
               <motion.div
                 key={i}
-                {...fadeIn(i * 0.2)} // ✅ correct usage
+                {...fadeIn(i * 0.2)}
                 className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-lg transition-all border border-gray-100 dark:border-gray-700 hover:border-purple-200 dark:hover:border-purple-800 group"
               >
                 <div className="flex items-start">
@@ -140,7 +140,7 @@ const Contact = () => {
           {/* Contact Form */}
           <motion.div
             className="lg:col-span-2"
-            {...fadeIn(0.3)} // ✅ correct usage
+            {...fadeIn(0.3)}
           >
             <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden">
               <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-4">
