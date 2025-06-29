@@ -44,7 +44,7 @@ export default function ViewUsersPage() {
   const handleDelete = async (id: string) => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/v1/removemessage/${id}`,
+        `https://updated-portfolio-backend.onrender.com/api/v1/removemessage/${id}`,
         { method: "DELETE" }
       );
 

@@ -21,7 +21,7 @@ const UpdatePage = () => {
     const fetchUser = async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/api/v1/getmessage/${id}`
+          `https://updated-portfolio-backend.onrender.com/api/v1/getmessage/${id}`
         );
         const data = await res.json();
         setEditData(data);
@@ -49,7 +49,7 @@ const UpdatePage = () => {
 
     try {
       const res = await fetch(
-        `http://localhost:5000/api/v1/updatemessage/${id}`,
+        `https://updated-portfolio-backend.onrender.com/api/v1/updatemessage/${id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

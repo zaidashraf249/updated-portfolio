@@ -17,7 +17,7 @@ const AdminLoginPage = () => {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/api/v2/adminlogin", {
+      const res = await fetch("https://updated-portfolio-backend.onrender.com/api/v2/adminlogin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),

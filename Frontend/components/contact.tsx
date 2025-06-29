@@ -31,7 +31,7 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const res = await fetch("http://localhost:5000/api/v1/addmessage", {
+      const res = await fetch("https://updated-portfolio-backend.onrender.com/api/v1/addmessage", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
