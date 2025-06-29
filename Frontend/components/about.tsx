@@ -1,16 +1,16 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { MapPin, Phone, Mail } from "lucide-react";
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
-  visible: (delay = 0) => ({
+  visible: (custom = 0) => ({
     opacity: 1,
     y: 0,
     transition: {
-      delay,
+      delay: custom,
       duration: 0.6,
-      ease: "easeOut",
+      ease: [0.25, 0.1, 0.25, 1], // ✅ Valid cubic-bezier
     },
   }),
 };
@@ -18,7 +18,7 @@ const fadeUp = {
 const About = () => {
   return (
     <section id="about" className="py-20 bg-white dark:bg-gray-900 relative overflow-hidden">
-      {/* Background decoration */}
+      {/* Background blur decorations */}
       <div className="absolute top-0 right-0 -mt-20 -mr-20 w-64 h-64 bg-purple-500/10 rounded-full filter blur-3xl"></div>
       <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-64 h-64 bg-pink-500/10 rounded-full filter blur-3xl"></div>
 
@@ -27,6 +27,7 @@ const About = () => {
           className="section-title"
           initial="hidden"
           whileInView="visible"
+          custom={0}
           viewport={{ once: true }}
           variants={fadeUp}
         >
@@ -43,8 +44,8 @@ const About = () => {
             className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100 dark:border-gray-700 text-left"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
             custom={0.1}
+            viewport={{ once: true }}
             variants={fadeUp}
           >
             <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-6 flex items-center">
@@ -69,8 +70,8 @@ const About = () => {
             className="text-left"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
             custom={0.2}
+            viewport={{ once: true }}
             variants={fadeUp}
           >
             <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-6 flex items-center">
@@ -81,7 +82,7 @@ const About = () => {
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {[ // reusable card animations
+              {[
                 {
                   icon: <MapPin className="text-purple-600 dark:text-purple-400" size={24} />,
                   title: "Location",
@@ -146,8 +147,8 @@ const About = () => {
               className="mt-8 bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md border border-gray-100 dark:border-gray-700"
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true }}
               custom={0.6}
+              viewport={{ once: true }}
               variants={fadeUp}
             >
               <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4 flex items-center">
