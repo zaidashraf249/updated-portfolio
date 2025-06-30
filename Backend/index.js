@@ -7,17 +7,21 @@ import adminRouter from "./router/adminRouter.js";
 const app = express();
 const PORT = 5000;
 
-app.use(cors());
+// ✅ Allow Vercel frontend to access backend
+app.use(cors({
+  origin: "https://v0-mern-portfolio-template.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
 app.use(express.json());
 
+// Connect to MongoDB
 connectDB();
 
-app.use('/api/v1',messageRouter)
-
-app.use('/api/v2', adminRouter)
-
-
-
+// API routes
+app.use('/api/v1', messageRouter);
+app.use('/api/v2', adminRouter);
 
 // Start the server
 app.listen(PORT, () => {
