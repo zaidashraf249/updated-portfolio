@@ -9,7 +9,7 @@ const PORT = 5000;
 
 // ✅ Allow Vercel frontend to access backend
 app.use(cors({
-  origin: "https://v0-mern-portfolio-template.vercel.app",
+  origin: "https://zaid-portfolio-rb3b.vercel.app",
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
